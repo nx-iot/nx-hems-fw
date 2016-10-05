@@ -1,0 +1,274 @@
+#include <mega128a.h> 
+#include <stdio.h>
+#include <stdint.h>
+#include <delay.h>
+#include <string.h>
+#include "timer.h"
+#include "debug.h"
+#include "int_protocol.h"
+#include "int_handler.h"
+#include "initial_system.h"
+
+TIMER baseCounter = 0;    // -- increase continually by 1 second timer. use for timer comparison -- //
+uint8_t pressedBTCounter = 0;
+uint8_t _FlagBT = 0;
+uint8_t _Flag05INT = 0;
+uint8_t _Flag0001INT = 0;
+uint8_t _BlinkLED_1Hz = 0;
+
+/* ================================================================================= */                                                              
+/*************************************************************************************/
+/******************************* Software Timer Support ******************************/
+/*************************************************************************************/ 
+/* ================================================================================= */
+TIMER TIMER_checkTimeLeft(TIMER time) {
+
+    if(baseCounter < time) {
+        return ( time - baseCounter );
+    }            
+    else{
+        return 0;
+    }  
+}
+/* ================================================================================= */
+int TIMER_checkTimerExceed(TIMER keeper) {
+
+    if(keeper == 0) {
+        return -1;
+    }
+
+    if((unsigned long int)baseCounter < (unsigned long int)keeper) {         
+        return 0;
+    }            
+    else {                             // -- time exceed -- //
+        return 1;
+    }
+}
+/* ================================================================================= */
+int TIMER_setTimer(TIMER *keeper, unsigned long int period) {
+
+    unsigned long int t;                 
+    
+    if(period == 0) {
+        printDebug("<TIMER_setTimer> ERR: period = 0\r\n");  
+        *keeper = 0xFFFFFFFF;
+        return -1;
+    }
+    
+    t = baseCounter + period;
+     
+    *keeper = t;
+    
+    if(t <= baseCounter) {
+        printDebug("<TIMER_setTimer> baseCounter[%ld] + period[%ld] = %ld OVERFLOW!!\r\n",baseCounter,period,t); 
+        *keeper = 0;
+        return -1;
+    }               
+    else {                             
+        return 0;
+    }
+}
+/* ================================================================================= */
+/*************************************************************************************/
+/********************************* Hardware Support **********************************/
+/*************************************************************************************/
+/* ================================================================================= */
+// Timer 0 overflow interrupt service routine (1 ms.)
+interrupt [TIM0_OVF] void timer0_ovf_isr(void) {
+
+    // Reinitialize Timer 0 value
+    TCNT0 = 0xD7;
+    // Place your code here
+    if(SWITCH == TURN_ON && _pired) { 
+        _Flag0001INT = 1;
+    }
+
+}
+/* ================================================================================= */
+// Timer1 overflow interrupt service routine (1 sec.)
+interrupt [TIM1_OVF] void timer1_ovf_isr(void) {
+    
+    //char i; 
+    
+    // Reinitialize Timer1 value
+    TCNT1H = 0x57;
+    TCNT1L = 0x40;
+     
+    baseCounter++;
+    //printDebug("<%lu>\r\n", baseCounter);
+
+}
+/* ================================================================================= */
+// Timer3 overflow interrupt service routine (0.5 sec.)
+interrupt [TIM3_OVF] void timer3_ovf_isr(void) {
+
+    // Reinitialize Timer3 value
+    TCNT3H = 0xAB;
+    TCNT3L = 0xA0;
+    
+    /*----- Count time pressed button -----*/
+    if(_FlagBT) {
+        pressedBTCounter++;    
+    }  
+    
+    /*----- 0.5 millisecond flag -----*/
+    if(SWITCH == TURN_ON && _pired) { 
+        _Flag05INT = 1;
+    }
+    
+    /*----- Blink Power LED 1 Hz -----*/
+    if(_BlinkLED_1Hz) {
+        if(LED_STAT_PIN == 1) {
+            LED_STAT_ON;
+        }else {
+            LED_STAT_OFF;
+        }
+    }    
+
+}
+/* ================================================================================= */
+void init_timer(void) {
+
+    // Timer/Counter 0 initialization (1 ms.)
+    // Clock source: System Clock
+    // Clock value: 43.200 kHz
+    // Mode: Normal top=0xFF
+    // OC0 output: Disconnected
+    ASSR=0x00;
+    TCCR0=0x06;
+    TCNT0=0xD7;
+    OCR0=0x00;
+
+    // Timer/Counter 1 initialization (1 sec.)
+    // Clock source: System Clock
+    // Clock value: 43.200 kHz
+    // Mode: Normal top=0xFFFF
+    // OC1A output: Discon.
+    // OC1B output: Discon.
+    // OC1C output: Discon.
+    // Noise Canceler: Off
+    // Input Capture on Falling Edge
+    // Timer1 Overflow Interrupt: On
+    // Input Capture Interrupt: Off
+    // Compare A Match Interrupt: Off
+    // Compare B Match Interrupt: Off
+    // Compare C Match Interrupt: Off
+    TCCR1A=0x00;
+    TCCR1B=0x04;
+    TCNT1H=0x57;
+    TCNT1L=0x40;
+    ICR1H=0x00;
+    ICR1L=0x00;
+    OCR1AH=0x00;
+    OCR1AL=0x00;
+    OCR1BH=0x00;
+    OCR1BL=0x00;
+    OCR1CH=0x00;
+    OCR1CL=0x00;
+
+    // Timer/Counter 2 initialization
+    // Clock source: System Clock
+    // Clock value: Timer2 Stopped
+    // Mode: Normal top=0xFF
+    // OC2 output: Disconnected
+    TCCR2=0x00;
+    TCNT2=0x00;
+    OCR2=0x00;
+
+    // Timer/Counter 3 initialization (0.5 sec.)
+    // Clock source: System Clock
+    // Clock value: 43.200 kHz
+    // Mode: Normal top=0xFFFF
+    // OC3A output: Discon.
+    // OC3B output: Discon.
+    // OC3C output: Discon.
+    // Noise Canceler: Off
+    // Input Capture on Falling Edge
+    // Timer3 Overflow Interrupt: On
+    // Input Capture Interrupt: Off
+    // Compare A Match Interrupt: Off
+    // Compare B Match Interrupt: Off
+    // Compare C Match Interrupt: Off
+    TCCR3A=0x00;
+    TCCR3B=0x04;
+    TCNT3H=0xAB;
+    TCNT3L=0xA0;
+    ICR3H=0x00;
+    ICR3L=0x00;
+    OCR3AH=0x00;
+    OCR3AL=0x00;
+    OCR3BH=0x00;
+    OCR3BL=0x00;
+    OCR3CH=0x00;
+    OCR3CL=0x00;
+    
+    // Watchdog Timer initialization
+    // Watchdog Timer Prescaler: OSC/2048k
+    #pragma optsize-
+    WDTCR=0x1F;
+    WDTCR=0x0F;
+    #ifdef _OPTIMIZE_SIZE_
+    #pragma optsize+
+    #endif
+    
+    // Timer/Counter 0 Interrupt(s) initialization
+    TIMSK = 0x00;
+
+    // Timer/Counter 1 Interrupt(s) initialization
+    TIMSK = 0x00;
+
+    // Timer/Counter 3 Interrupt(s) initialization 
+    ETIMSK = 0x00;
+
+}
+/* ================================================================================= */
+void enable_timerOverflow(int ch) {
+    
+    /*-------------- enable timer ---------------*/  
+    switch(ch){
+        case 0: // Timer/Counter 0 Interrupt(s) initialization
+                TIMSK |= 0x01;
+                break;
+        case 1: // Timer/Counter 1 Interrupt(s) initialization
+                TIMSK |= 0x04;
+                break;
+        case 2: // Timer/Counter 2 Interrupt(s) initialization
+                //TIMSK2=0x01;
+                break;
+        case 3: // Timer/Counter 3 Interrupt(s) initialization 
+                ETIMSK |= 0x04;
+                break;
+        case 4: // Timer/Counter 4 Interrupt(s) initialization
+                //TIMSK4=0x01;
+                break;
+    }
+    // Global enable interrupts
+    #asm("sei") 
+}
+/* ================================================================================= */
+void disable_timerOverflow(int ch) {
+    
+    // -------------- disable timer ---------------  //
+    
+    switch(ch) {
+        case 0: // Timer/Counter 0 Interrupt(s) initialization
+                TIMSK &= 0xFE;
+                break;
+        case 1: // Timer/Counter 1 Interrupt(s) initialization
+                TIMSK &= 0xFB;
+                break;
+        case 2: // Timer/Counter 2 Interrupt(s) initialization
+                //TIMSK2=0x00;
+                break;
+        case 3: // Timer/Counter 3 Interrupt(s) initialization 
+                ETIMSK = 0x00;
+                break;
+        case 4: // Timer/Counter 4 Interrupt(s) initialization
+                //TIMSK4=0x00;
+                break;
+    }
+    // Global enable interrupts
+    #asm("sei") 
+}
+/* ================================================================================= */
+

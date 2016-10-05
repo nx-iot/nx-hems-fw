@@ -1,0 +1,136 @@
+;#include <mega128a.h>
+;PCODE: $00000000 VOL: 0
+	#ifndef __SLEEP_DEFINED__
+;PCODE: $00000001 VOL: 0
+	#define __SLEEP_DEFINED__
+;PCODE: $00000002 VOL: 0
+	.EQU __se_bit=0x20
+;PCODE: $00000003 VOL: 0
+	.EQU __sm_mask=0x1C
+;PCODE: $00000004 VOL: 0
+	.EQU __sm_powerdown=0x10
+;PCODE: $00000005 VOL: 0
+	.EQU __sm_powersave=0x18
+;PCODE: $00000006 VOL: 0
+	.EQU __sm_standby=0x14
+;PCODE: $00000007 VOL: 0
+	.EQU __sm_ext_standby=0x1C
+;PCODE: $00000008 VOL: 0
+	.EQU __sm_adc_noise_red=0x08
+;PCODE: $00000009 VOL: 0
+	.SET power_ctrl_reg=mcucr
+;PCODE: $0000000A VOL: 0
+	#endif
+;PCODE: $0000000B VOL: 0
+;PCODE: $0000000C VOL: 0
+;#include <stdio.h>
+;#include <stdint.h>
+;#include <delay.h>
+;#include <string.h>
+;#include "adc.h"
+;#include "debug.h"
+;
+;//eeprom float _adcVref = 5.0;
+;char Vreferent = VREF_AVCC;
+;/* ================================================================================= */
+;void init_adc(unsigned char vrff) {
+; 000A 000C void init_adc(unsigned char vrff) {
+
+	.CSEG
+;PCODE: $0000000D VOL: 0
+;PCODE: $0000000E VOL: 0
+; 000A 000D 
+; 000A 000E     // ADC initialization
+; 000A 000F     // ADC Clock frequency: 691.200 kHz
+; 000A 0010     // ADC Voltage Reference: vrff
+; 000A 0011     Vreferent = vrff;
+;PCODE: $0000000F VOL: 0
+;	vrff -> Y+0
+;PCODE: $00000010 VOL: 0
+;PCODE: $00000011 VOL: 0
+; 000A 0012     ADMUX = Vreferent & 0xff;
+;PCODE: $00000012 VOL: 0
+;PCODE: $00000013 VOL: 0
+;PCODE: $00000014 VOL: 0
+; 000A 0013     ADCSRA = 0xA4;
+;PCODE: $00000015 VOL: 0
+;PCODE: $00000016 VOL: 0
+; 000A 0014     //printDebug("ADMUX = %02X\r\n", ADMUX);
+; 000A 0015 
+; 000A 0016 }
+;PCODE: $00000017 VOL: 0
+;PCODE: $00000018 VOL: 0
+;PCODE: $00000019 VOL: 0
+;/* ================================================================================= */
+;// Read the AD conversion result
+;uint16_t read_adc(unsigned char adc_input) {
+; 000A 0019 uint16_t read_adc(unsigned char adc_input) {
+;PCODE: $0000001A VOL: 0
+;PCODE: $0000001B VOL: 0
+; 000A 001A 
+; 000A 001B     unsigned int adc_data = 0x0000;
+; 000A 001C 
+; 000A 001D     ADMUX = (Vreferent | adc_input);
+;PCODE: $0000001C VOL: 0
+;PCODE: $0000001D VOL: 0
+;PCODE: $0000001E VOL: 0
+;	adc_input -> Y+2
+;	adc_data -> R16,R17
+;PCODE: $0000001F VOL: 0
+;PCODE: $00000020 VOL: 0
+;PCODE: $00000021 VOL: 0
+;PCODE: $00000022 VOL: 0
+;PCODE: $00000023 VOL: 0
+; 000A 001E     //printDebug("ADMUX = %02X\r\n", ADMUX);
+; 000A 001F 
+; 000A 0020     // Delay needed for the stabilization of the ADC input voltage
+; 000A 0021     delay_us(50);
+;PCODE: $00000024 VOL: 0
+; 000A 0022 
+; 000A 0023     // Start the AD conversion
+; 000A 0024     ADCSRA |= 0x80; // ENABLE ADC
+;PCODE: $00000025 VOL: 0
+;PCODE: $00000026 VOL: 0
+; 000A 0025     ADCSRA |= 0x40;  // Start convert
+;PCODE: $00000027 VOL: 0
+;PCODE: $00000028 VOL: 0
+; 000A 0026 
+; 000A 0027     // Wait for the AD conversion to complete
+; 000A 0028     while((ADCSRA & 0x10) == 0);
+;PCODE: $00000029 VOL: 0
+;PCODE: $0000002A VOL: 0
+;PCODE: $0000002B VOL: 0
+;PCODE: $0000002C VOL: 0
+;PCODE: $0000002D VOL: 0
+;PCODE: $0000002E VOL: 0
+; 000A 0029     adc_data = ADCL;
+;PCODE: $0000002F VOL: 0
+;PCODE: $00000030 VOL: 0
+;PCODE: $00000031 VOL: 0
+; 000A 002A     adc_data |= (ADCH & 0x00ff) << 8;
+;PCODE: $00000032 VOL: 0
+;PCODE: $00000033 VOL: 0
+;PCODE: $00000034 VOL: 0
+;PCODE: $00000035 VOL: 0
+;PCODE: $00000036 VOL: 0
+; 000A 002B 
+; 000A 002C     ADCSRA |= 0x10;
+;PCODE: $00000037 VOL: 0
+;PCODE: $00000038 VOL: 0
+; 000A 002D 
+; 000A 002E     return adc_data;
+;PCODE: $00000039 VOL: 0
+;PCODE: $0000003A VOL: 0
+;PCODE: $0000003B VOL: 0
+;PCODE: $0000003C VOL: 0
+;PCODE: $0000003D VOL: 0
+;PCODE: $0000003E VOL: 0
+;PCODE: $0000003F VOL: 0
+; 000A 002F 
+; 000A 0030 }
+;PCODE: $00000040 VOL: 0
+;/* ================================================================================= */
+;
+;
+;
+;

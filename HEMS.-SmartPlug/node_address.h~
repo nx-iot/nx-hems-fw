@@ -1,0 +1,7 @@
+#ifndef NODE_ADDRESS_H
+#define NODE_ADDRESS_H
+
+uint8_t nodeAddress_read(uint8_t *addr);
+uint8_t nodeAddress_write_SH(uint8_t *addr);
+uint8_t nodeAddress_write_SL(uint8_t *addr);
+#endif 

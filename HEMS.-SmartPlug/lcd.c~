@@ -1,0 +1,80 @@
+#include <mega128.h>
+#include <stdio.h>
+#include <alcd.h> 
+#include "lcd.h"
+
+flash byte celsius[8] = {                                            // Celsius Unit
+                         0b00010111,
+                         0b00000100,
+                         0b00000100,
+                         0b00000111,
+                         0b00000000,
+                         0b00000000,
+                         0b00000000,
+                         0b00000000};
+flash byte arrowUP[8] = {                                            // Arrow Up
+                         0b00000000,
+                         0b00000000,
+                         0b00000000,
+                         0b00000100,
+                         0b00001110,
+                         0b00011111,
+                         0b00011111,
+                         0b00000000};
+flash byte arrowDOWN[8] = {                                            // Arrow Down
+                           0b00000000,
+                           0b00011111,
+                           0b00011111,
+                           0b00001110,
+                           0b00000100,
+                           0b00000000,
+                           0b00000000,
+                           0b00000000};
+
+
+/*============================================================*/
+void define_char(byte flash *pc, byte char_code) {
+    byte i, a;
+    a = (char_code << 3) | 0x40;
+    for(i = 0; i < 8; i++) { 
+        lcd_write_byte(a++, *pc++);
+    }
+}
+/*============================================================*/
+void LCD_initial(void) {
+    /* initialize the LCD for 2 lines & 16 columns */
+    lcd_init(16);
+
+    /* define user character 0 */
+    define_char(celsius, 0);
+    define_char(arrowUP, 1);
+    define_char(arrowDOWN, 2);
+    
+    lcd_clear();
+
+}
+/*============================================================*/
+void LCD_printTemp(float temp) {
+
+    char str[17];
+    lcd_clear();
+    sprintf(str, "  Temp   %0.1f", temp);
+    lcd_puts(str);
+    lcd_putchar(0);                             // display used defined char 0
+}
+/*============================================================*/
+void LCD_printSettingTemp(float temp) {
+
+    char str[17];
+    lcd_clear();
+    sprintf(str, "  TEMP SETTING ");
+    lcd_puts(str);
+    lcd_putchar(1);
+    lcd_gotoxy(0, 1);
+    sprintf(str, "     %0.1f ", temp);
+    lcd_puts(str);
+    lcd_putchar(0);                             // display used defined char 0
+    lcd_gotoxy(15, 1);
+    lcd_putchar(2);
+}
+/*============================================================*/

@@ -1,0 +1,58 @@
+RAM Allocation
+Variable                                                          Address   Size
+--------------------------------------------------------------------------------
+SWITCH                                                            0x0608       1
+CURRENT_VOLT                                                      0x0609       4
+CURRENT_AMP                                                       0x060D       4
+baseCounter                                                       0x0611       4
+pressedBTCounter                                                  0x0615       1
+_FlagBT                                                           0x0616       1
+_Flag05INT                                                        0x0617       1
+_Flag0001INT                                                      0x0618       1
+_BlinkLED_1Hz                                                     0x0619       1
+INT_waitQueue                                                     0x061A     110
+funcSendPACKET                                                    0x0688       2
+funcProcessNETMAINA                                               0x068A       2
+funcProcessRMDCTRLC                                               0x068C       2
+RECEIVER_ADDRESS                                                  0x068E       8
+SENDER_ADDRESS                                                    0x0696       8
+_hb_res                                                           0x069E       1
+_hb_stat                                                          0x069F       1
+_joinreq_res                                                      0x06A0       1
+_joinreq_stat                                                     0x06A1       1
+_pired                                                            0x06A2       1
+_xbee_join                                                        0x06A3       1
+_xbee_Assoc                                                       0x06A4       1
+_xbee_chkAsso_res                                                 0x06A5       1
+XBEE_SERIAL                                                       0x06A6       8
+_FlagPackageTerminate0                                            0x06AE       1
+rxPackage0                                                        0x06AF      32
+sr_addr                                                           0x06CF       8
+funcProcessZTS                                                    0x06D7       2
+funcProcessZRPKT                                                  0x06D9       2
+funcProcessMDS                                                    0x06DB       2
+funcProcessATCMR                                                  0x06DD       2
+SENSOR_SENSITIVE                                                  0x06DF       4
+AMP_ADJ_ZERO                                                      0x06E3       4
+rx_buffer1                                                        0x06E7     512
+_seed                                                             0x08E7       4
+
+EEPROM Allocation
+Variable                                                          Address   Size
+--------------------------------------------------------------------------------
+ADJ0_SENSOR5A                                                     0x0000       4
+ADJ0_SENSOR20A                                                    0x0004       4
+ADJ0_SENSOR30A                                                    0x0008       4
+SAVE_DEVICE_STAT                                                  0x000C       1
+
+Register Allocation
+Variable                                                          Register  Size
+--------------------------------------------------------------------------------
+rx_wr_index1                                                      R4,R5        2
+rx_rd_index1                                                      R6,R7        2
+rx_counter1                                                       R8,R9        2
+rx_buffer_overflow1                                               R2.0      1bit
+rxPackageIndex0                                                   R11          1
+rxPackageIndexCount0                                              R10          1
+INT_waitQCount                                                    R13          1
+Vreferent                                                         R12          1

@@ -1,0 +1,19 @@
+Firmware         : Smart Switch / Smart Plug / Smart Breaker
+Target Board     : INT-SPB-01-02
+Company          : Intelenics Co.,Ltd.
+
+Revision History :
++--------------------------------------------------------------------+
+|  Revision  |     Date     |              Description               |
++--------------------------------------------------------------------+
+|     1      |  25/10/2556  | - Save on/off status in EEPROM and     |
+|            |              | config device when device start.       |
+|            |              | - Working mode -> Add Current monitor  |                                    
+|            |              | mode and Can select working mode via   |
+|            |              | debug.                                 |
+|            |              |                                        |
+|     2      |  01/11/2556  | - Remove Current monitor mode          |
+|            |              | - Remove config real Vref via debug    |
+|            |              |                                        |
+|            |              |                                        |
++--------------------------------------------------------------------+

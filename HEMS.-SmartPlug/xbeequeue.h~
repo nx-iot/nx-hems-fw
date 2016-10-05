@@ -1,0 +1,25 @@
+#ifndef XBEEQUEUE_H
+#define XBEEQUEUE_H   
+
+#include "timer.h"
+
+#define XBEE_MAX_WAIT_QUEUE  15
+#define XBEE_MAX_PKT_LEN     255
+#define XBEE_MAX_RETRY       3
+                     
+struct xbeequeue {                                
+    char            retryCount;    
+    TIMER           retryTime;
+    int             timeout;          
+    unsigned char   packetLen;     
+    char            packetID; 
+    char            *packetData;
+};
+
+int xbee_addWaitQueue(char id, char *pktptr, int len, int timeout);
+int xbee_removeWaitQueue(char id);
+void xbee_initWaitQueue(void);
+char xbee_findFreeSlotWaitQueue(void);
+
+#endif 
+
