@@ -1,0 +1,622 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.18.0.0
+Copyright (C) 2016 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: ss ss, ss, LIC=ATTHL-08BEN-MLQCI-TVG65-M13VV-N0P1U
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Standard  Version: 5.18
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 1 (build 61)
+Assembler:       Armasm.exe V5.06 update 1 (build 61)
+Linker/Locator:  ArmLink.exe V5.06 update 1 (build 61)
+Library Manager: ArmAr.exe V5.06 update 1 (build 61)
+Hex Converter:   FromElf.exe V5.06 update 1 (build 61)
+CPU DLL:         SARMCM3.DLL V5.18
+Dialog DLL:      DARMCM1.DLL V1.12.0.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V2.0.18.0
+Dialog DLL:      TARMCM1.DLL V1.9.0.0
+ 
+<h2>Project:</h2>
+C:\Users\acer\Desktop\STM32F0-Superloop-V1.2\MDK-ARM\STM32F0-Superloop-V1.0.uvprojx
+Project File Date:  08/25/2016
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 1 (build 61)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+Rebuild target 'STM32F0-Superloop-V1.0'
+compiling stm32f0xx_hal_i2c_ex.c...
+compiling stm32f0xx_hal_tim_ex.c...
+compiling stm32f0xx_hal_flash_ex.c...
+compiling stm32f0xx_hal_flash.c...
+compiling stm32f0xx_hal_rcc.c...
+compiling stm32f0xx_hal_rcc_ex.c...
+compiling stm32f0xx_hal_spi_ex.c...
+compiling stm32f0xx_hal_uart.c...
+compiling stm32f0xx_hal_i2c.c...
+compiling stm32f0xx_hal_pwr.c...
+compiling stm32f0xx_hal_cortex.c...
+compiling stm32f0xx_hal_uart_ex.c...
+compiling stm32f0xx_hal.c...
+compiling stm32f0xx_hal_gpio.c...
+compiling stm32f0xx_hal_dma.c...
+compiling stm32f0xx_hal_pwr_ex.c...
+assembling startup_stm32f051x8.s...
+compiling stm32f0xx_hal_tim.c...
+compiling stm32f0xx_hal_spi.c...
+compiling stm32f0xx_it.c...
+..\nx_libs\inc\uart2_manag.h(16): warning:  #1-D: last line of file ends without a newline
+  #endif 
+../Inc/main.h(104): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\nx_libs\inc\print_debug.h(30): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\nx_libs\inc\uart2_manag.h(12): warning:  #1295-D: Deprecated declaration uart2_flush - give arg types
+  void uart2_flush();
+..\nx_libs\inc\uart2_manag.h(14): warning:  #1295-D: Deprecated declaration uart2_callback - give arg types
+  extern void uart2_callback();
+..\nx_libs\inc\uart2_manag.h(16): warning:  #1-D: last line of file ends without a newline
+  #endif 
+../Src/stm32f0xx_it.c: 6 warnings, 0 errors
+compiling main.c...
+../Inc/main.h(104): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\nx_libs\inc\print_debug.h(30): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\nx_libs\inc\uart2_manag.h(12): warning:  #1295-D: Deprecated declaration uart2_flush - give arg types
+  void uart2_flush();
+..\nx_libs\inc\uart2_manag.h(14): warning:  #1295-D: Deprecated declaration uart2_callback - give arg types
+  extern void uart2_callback();
+..\nx_libs\inc\uart2_manag.h(16): warning:  #1-D: last line of file ends without a newline
+  #endif 
+../Inc/main.h(104): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\nx_libs\inc\xbee.h(44): warning:  #1295-D: Deprecated declaration xbee_flush - give arg types
+  void xbee_flush();
+..\nx_libs\inc\xbee.h(57): warning:  #1-D: last line of file ends without a newline
+  #endif 
+..\nx_libs\inc\xbeehandler.h(51): warning:  #1-D: last line of file ends without a newline
+  int process_cmdData(unsigned int atCmd, char *cmdData, int len);
+..\nx_libs\inc\protocol.h(50): warning:  #47-D: incompatible redefinition of macro "PWR" (declared at line 617 of "../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f051x8.h")
+  #define PWR             0x12        // Power (KW)
+..\nx_libs\inc\protocol.h(87): warning:  #1-D: last line of file ends without a newline
+  void Remote_Relay(char *buf);
+..\nx_libs\inc\handler.h(20): warning:  #1-D: last line of file ends without a newline
+  int8_t INT_processNETMAINA(char *buf, int len);
+../Src/main.c(167): warning:  #188-D: enumerated type mixed with another type
+  	HAL_GPIO_WritePin(
+PIOB,
+PIO_PIN_1,0);
+../Src/main.c(168): warning:  #188-D: enumerated type mixed with another type
+  	HAL_GPIO_WritePin(
+PIOB,
+PIO_PIN_1,1);
+../Src/main.c(169): warning:  #188-D: enumerated type mixed with another type
+  	HAL_GPIO_WritePin(
+PIOB,
+PIO_PIN_2,0);
+../Src/main.c(170): warning:  #188-D: enumerated type mixed with another type
+  	HAL_GPIO_WritePin(
+PIOB,
+PIO_PIN_3,1);
+../Src/main.c(498): warning:  #177-D: variable "a" was declared but never referenced
+  	uint8_t a[1];
+../Src/main.c(499): warning:  #177-D: variable "b" was declared but never referenced
+  	uint8_t b[]={0x06};
+../Src/main.c(529): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOA, 
+PIO_PIN_0,0); //CS1
+../Src/main.c(532): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOA, 
+PIO_PIN_1,0); //CS2
+../Src/main.c(535): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOA, 
+PIO_PIN_4,0); //CS3
+../Src/main.c(538): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOA, 
+PIO_PIN_8,0); //CS4
+../Src/main.c(541): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOA, 
+PIO_PIN_11,0); //CS5
+../Src/main.c(544): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOA, 
+PIO_PIN_12,0); //CS6
+../Src/main.c(547): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOA, 
+PIO_PIN_15,0); //CS7
+../Src/main.c(550): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOB, 
+PIO_PIN_10,0); //CS8
+../Src/main.c(553): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOB, 
+PIO_PIN_11,0); //CS9
+../Src/main.c(556): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOC, 
+PIO_PIN_4,0); //CS10
+../Src/main.c(559): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOC, 
+PIO_PIN_5,0); //CS11
+../Src/main.c(562): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOC, 
+PIO_PIN_10,0); //CS12
+../Src/main.c(565): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOC, 
+PIO_PIN_11,0); //CS13
+../Src/main.c(568): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOC, 
+PIO_PIN_12,0); //CS14
+../Src/main.c(571): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOF, 
+PIO_PIN_4,0); //CS15
+../Src/main.c(574): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOF, 
+PIO_PIN_5,0); //CS16
+../Src/main.c(577): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOA, 
+PIO_PIN_0,0); //CS1
+../Src/main.c(578): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOA, 
+PIO_PIN_1,0); //CS2
+../Src/main.c(579): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOA, 
+PIO_PIN_4,0); //CS3
+../Src/main.c(580): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOA, 
+PIO_PIN_8,0); //CS4
+../Src/main.c(581): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOA, 
+PIO_PIN_11,0); //CS5
+../Src/main.c(582): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOA, 
+PIO_PIN_12,0); //CS6
+../Src/main.c(583): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOA, 
+PIO_PIN_15,0); //CS7
+../Src/main.c(584): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOB, 
+PIO_PIN_10,0); //CS8
+../Src/main.c(585): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOB, 
+PIO_PIN_11,0); //CS9
+../Src/main.c(586): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOC, 
+PIO_PIN_4,0); //CS10
+../Src/main.c(587): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOC, 
+PIO_PIN_5,0); //CS11
+../Src/main.c(588): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOC, 
+PIO_PIN_10,0); //CS12
+../Src/main.c(589): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOC, 
+PIO_PIN_11,0); //CS13
+../Src/main.c(590): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOC, 
+PIO_PIN_12,0); //CS14
+../Src/main.c(591): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOF, 
+PIO_PIN_4,0); //CS15
+../Src/main.c(592): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOF, 
+PIO_PIN_5,0); //CS16
+../Src/main.c(602): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOA, 
+PIO_PIN_0,1); //CS1
+../Src/main.c(605): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOA, 
+PIO_PIN_1,1); //CS2
+../Src/main.c(608): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOA, 
+PIO_PIN_4,1); //CS3
+../Src/main.c(611): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOA, 
+PIO_PIN_8,1); //CS4
+../Src/main.c(614): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOA, 
+PIO_PIN_11,1); //CS5
+../Src/main.c(617): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOA, 
+PIO_PIN_12,1); //CS6
+../Src/main.c(620): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOA, 
+PIO_PIN_15,1); //CS7
+../Src/main.c(623): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOB, 
+PIO_PIN_10,1); //CS8
+../Src/main.c(626): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOB, 
+PIO_PIN_11,1); //CS9
+../Src/main.c(629): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOC, 
+PIO_PIN_4,1); //CS10
+../Src/main.c(632): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOC, 
+PIO_PIN_5,1); //CS11
+../Src/main.c(635): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOC, 
+PIO_PIN_10,1); //CS12
+../Src/main.c(638): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOC, 
+PIO_PIN_11,1); //CS13
+../Src/main.c(641): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOC, 
+PIO_PIN_12,1); //CS14
+../Src/main.c(644): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOF, 
+PIO_PIN_4,1); //CS15
+../Src/main.c(647): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOF, 
+PIO_PIN_5,1); //CS16
+../Src/main.c(650): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOA, 
+PIO_PIN_0,1); //CS1
+../Src/main.c(651): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOA, 
+PIO_PIN_1,1); //CS2
+../Src/main.c(652): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOA, 
+PIO_PIN_4,1); //CS3
+../Src/main.c(653): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOA, 
+PIO_PIN_8,1); //CS4
+../Src/main.c(654): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOA, 
+PIO_PIN_11,1); //CS5
+../Src/main.c(655): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOA, 
+PIO_PIN_12,1); //CS6
+../Src/main.c(656): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOA, 
+PIO_PIN_15,1); //CS7
+../Src/main.c(657): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOB, 
+PIO_PIN_10,1); //CS8
+../Src/main.c(658): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOB, 
+PIO_PIN_11,1); //CS9
+../Src/main.c(659): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOC, 
+PIO_PIN_4,1); //CS10
+../Src/main.c(660): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOC, 
+PIO_PIN_5,1); //CS11
+../Src/main.c(661): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOC, 
+PIO_PIN_10,1); //CS12
+../Src/main.c(662): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOC, 
+PIO_PIN_11,1); //CS13
+../Src/main.c(663): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOC, 
+PIO_PIN_12,1); //CS14
+../Src/main.c(664): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOF, 
+PIO_PIN_4,1); //CS15
+../Src/main.c(665): warning:  #188-D: enumerated type mixed with another type
+  					HAL_GPIO_WritePin(
+PIOF, 
+PIO_PIN_5,1); //CS16
+../Src/main.c: 82 warnings, 0 errors
+compiling stm32f0xx_hal_msp.c...
+compiling system_stm32f0xx.c...
+compiling print_debug.c...
+../Inc/main.h(104): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\nx_libs\inc\print_debug.h(30): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\nx_libs\inc\uart2_manag.h(12): warning:  #1295-D: Deprecated declaration uart2_flush - give arg types
+  void uart2_flush();
+..\nx_libs\inc\uart2_manag.h(14): warning:  #1295-D: Deprecated declaration uart2_callback - give arg types
+  extern void uart2_callback();
+..\nx_libs\inc\uart2_manag.h(16): warning:  #1-D: last line of file ends without a newline
+  #endif 
+../Inc/main.h(104): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\nx_libs\inc\print_debug.h(30): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\nx_libs\src\print_debug.c(20): warning:  #177-D: variable "i" was declared but never referenced
+  	uint8_t i = 0;
+..\nx_libs\src\print_debug.c(156): warning:  #1-D: last line of file ends without a newline
+  ///////////////////////////////END PRINT DEBUG ///////////////////////////////
+..\nx_libs\src\print_debug.c: 9 warnings, 0 errors
+compiling handler.c...
+../Inc/main.h(104): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\nx_libs\inc\print_debug.h(30): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\nx_libs\inc\uart2_manag.h(12): warning:  #1295-D: Deprecated declaration uart2_flush - give arg types
+  void uart2_flush();
+..\nx_libs\inc\uart2_manag.h(14): warning:  #1295-D: Deprecated declaration uart2_callback - give arg types
+  extern void uart2_callback();
+..\nx_libs\inc\uart2_manag.h(16): warning:  #1-D: last line of file ends without a newline
+  #endif 
+../Inc/main.h(104): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\nx_libs\inc\xbee.h(44): warning:  #1295-D: Deprecated declaration xbee_flush - give arg types
+  void xbee_flush();
+..\nx_libs\inc\xbee.h(57): warning:  #1-D: last line of file ends without a newline
+  #endif 
+..\nx_libs\inc\xbeehandler.h(51): warning:  #1-D: last line of file ends without a newline
+  int process_cmdData(unsigned int atCmd, char *cmdData, int len);
+..\nx_libs\inc\handler.h(20): warning:  #1-D: last line of file ends without a newline
+  int8_t INT_processNETMAINA(char *buf, int len);
+..\nx_libs\inc\protocol.h(50): warning:  #47-D: incompatible redefinition of macro "PWR" (declared at line 617 of "../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f051x8.h")
+  #define PWR             0x12        // Power (KW)
+..\nx_libs\inc\protocol.h(87): warning:  #1-D: last line of file ends without a newline
+  void Remote_Relay(char *buf);
+..\nx_libs\src\handler.c(69): warning:  #111-D: statement is unreachable
+              break;
+..\nx_libs\src\handler.c(84): warning:  #177-D: variable "res" was declared but never referenced
+      int res;
+..\nx_libs\src\handler.c(137): warning:  #1-D: last line of file ends without a newline
+  /* ================================================================================= */ 
+..\nx_libs\src\handler.c: 15 warnings, 0 errors
+compiling protocol.c...
+..\nx_libs\inc\protocol.h(87): warning:  #1-D: last line of file ends without a newline
+  void Remote_Relay(char *buf);
+../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f051x8.h(617): warning:  #47-D: incompatible redefinition of macro "PWR" (declared at line 50 of "..\nx_libs\inc\protocol.h")
+  #define PWR                 ((PWR_TypeDef *) PWR_BASE)
+../Inc/main.h(104): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\nx_libs\inc\print_debug.h(30): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\nx_libs\inc\uart2_manag.h(12): warning:  #1295-D: Deprecated declaration uart2_flush - give arg types
+  void uart2_flush();
+..\nx_libs\inc\uart2_manag.h(14): warning:  #1295-D: Deprecated declaration uart2_callback - give arg types
+  extern void uart2_callback();
+..\nx_libs\inc\uart2_manag.h(16): warning:  #1-D: last line of file ends without a newline
+  #endif 
+../Inc/main.h(104): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\nx_libs\inc\print_debug.h(30): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\nx_libs\inc\xbee.h(44): warning:  #1295-D: Deprecated declaration xbee_flush - give arg types
+  void xbee_flush();
+..\nx_libs\inc\xbee.h(57): warning:  #1-D: last line of file ends without a newline
+  #endif 
+..\nx_libs\inc\handler.h(20): warning:  #1-D: last line of file ends without a newline
+  int8_t INT_processNETMAINA(char *buf, int len);
+..\nx_libs\src\protocol.c(13): warning:  #550-D: variable "res" was set but never used
+      int res;
+..\nx_libs\src\protocol.c(52): warning:  #550-D: variable "res" was set but never used
+      int res, i;
+..\nx_libs\src\protocol.c(88): warning:  #550-D: variable "res" was set but never used
+      int res, i;
+..\nx_libs\src\protocol.c(124): warning:  #550-D: variable "res" was set but never used
+      int res, i;
+..\nx_libs\src\protocol.c(303): warning:  #111-D: statement is unreachable
+              break;
+..\nx_libs\src\protocol.c(176): warning:  #177-D: variable "command" was declared but never referenced
+      char command;
+..\nx_libs\src\protocol.c(329): warning:  #188-D: enumerated type mixed with another type
+  			HAL_GPIO_WritePin(
+PIOB,
+PIO_PIN_0,1);
+..\nx_libs\src\protocol.c(333): warning:  #188-D: enumerated type mixed with another type
+  			HAL_GPIO_WritePin(
+PIOB,
+PIO_PIN_0,0);
+..\nx_libs\src\protocol.c(342): warning:  #188-D: enumerated type mixed with another type
+  			HAL_GPIO_WritePin(
+PIOB,
+PIO_PIN_1,1);
+..\nx_libs\src\protocol.c(346): warning:  #188-D: enumerated type mixed with another type
+  			HAL_GPIO_WritePin(
+PIOB,
+PIO_PIN_1,0);
+..\nx_libs\src\protocol.c(354): warning:  #188-D: enumerated type mixed with another type
+  			HAL_GPIO_WritePin(
+PIOB,
+PIO_PIN_2,1);
+..\nx_libs\src\protocol.c(358): warning:  #188-D: enumerated type mixed with another type
+  			HAL_GPIO_WritePin(
+PIOB,
+PIO_PIN_2,0);
+..\nx_libs\src\protocol.c(366): warning:  #188-D: enumerated type mixed with another type
+  			HAL_GPIO_WritePin(
+PIOB,
+PIO_PIN_3,1);
+..\nx_libs\src\protocol.c(370): warning:  #188-D: enumerated type mixed with another type
+  			HAL_GPIO_WritePin(
+PIOB,
+PIO_PIN_3,0);
+..\nx_libs\src\protocol.c(378): warning:  #188-D: enumerated type mixed with another type
+  			HAL_GPIO_WritePin(
+PIOB,
+PIO_PIN_4,1);
+..\nx_libs\src\protocol.c(382): warning:  #188-D: enumerated type mixed with another type
+  			HAL_GPIO_WritePin(
+PIOB,
+PIO_PIN_4,0);
+..\nx_libs\src\protocol.c(390): warning:  #188-D: enumerated type mixed with another type
+  			HAL_GPIO_WritePin(
+PIOB,
+PIO_PIN_5,1);
+..\nx_libs\src\protocol.c(394): warning:  #188-D: enumerated type mixed with another type
+  			HAL_GPIO_WritePin(
+PIOB,
+PIO_PIN_5,0);
+..\nx_libs\src\protocol.c(402): warning:  #188-D: enumerated type mixed with another type
+  			HAL_GPIO_WritePin(
+PIOB,
+PIO_PIN_6,1);
+..\nx_libs\src\protocol.c(406): warning:  #188-D: enumerated type mixed with another type
+  			HAL_GPIO_WritePin(
+PIOB,
+PIO_PIN_6,0);
+..\nx_libs\src\protocol.c(414): warning:  #188-D: enumerated type mixed with another type
+  			HAL_GPIO_WritePin(
+PIOB,
+PIO_PIN_7,1);
+..\nx_libs\src\protocol.c(418): warning:  #188-D: enumerated type mixed with another type
+  			HAL_GPIO_WritePin(
+PIOB,
+PIO_PIN_7,0);
+..\nx_libs\src\protocol.c(429): warning:  #1-D: last line of file ends without a newline
+  }
+..\nx_libs\src\protocol.c: 35 warnings, 0 errors
+compiling xbee.c...
+../Inc/main.h(104): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\nx_libs\inc\print_debug.h(30): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\nx_libs\inc\uart2_manag.h(12): warning:  #1295-D: Deprecated declaration uart2_flush - give arg types
+  void uart2_flush();
+..\nx_libs\inc\uart2_manag.h(14): warning:  #1295-D: Deprecated declaration uart2_callback - give arg types
+  extern void uart2_callback();
+..\nx_libs\inc\uart2_manag.h(16): warning:  #1-D: last line of file ends without a newline
+  #endif 
+../Inc/main.h(104): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\nx_libs\inc\xbee.h(44): warning:  #1295-D: Deprecated declaration xbee_flush - give arg types
+  void xbee_flush();
+..\nx_libs\inc\xbee.h(57): warning:  #1-D: last line of file ends without a newline
+  #endif 
+..\nx_libs\inc\xbeehandler.h(51): warning:  #1-D: last line of file ends without a newline
+  int process_cmdData(unsigned int atCmd, char *cmdData, int len);
+..\nx_libs\inc\handler.h(20): warning:  #1-D: last line of file ends without a newline
+  int8_t INT_processNETMAINA(char *buf, int len);
+..\nx_libs\inc\protocol.h(50): warning:  #47-D: incompatible redefinition of macro "PWR" (declared at line 617 of "../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f051x8.h")
+  #define PWR             0x12        // Power (KW)
+..\nx_libs\inc\protocol.h(87): warning:  #1-D: last line of file ends without a newline
+  void Remote_Relay(char *buf);
+..\nx_libs\src\xbee.c(57): warning:  #550-D: variable "ret" was set but never used
+      int ret = 0;           
+..\nx_libs\src\xbee.c(159): warning:  #111-D: statement is unreachable
+              continue;
+..\nx_libs\src\xbee.c(179): warning:  #111-D: statement is unreachable
+              offset++;
+..\nx_libs\src\xbee.c(121): warning:  #550-D: variable "ret" was set but never used
+      int ret = 0;           
+..\nx_libs\src\xbee.c(241): warning:  #111-D: statement is unreachable
+              break;
+..\nx_libs\src\xbee.c(250): warning:  #111-D: statement is unreachable
+              break; 
+..\nx_libs\src\xbee.c(259): warning:  #111-D: statement is unreachable
+              break;
+..\nx_libs\src\xbee.c(268): warning:  #111-D: statement is unreachable
+              break;  
+..\nx_libs\src\xbee.c(273): warning:  #111-D: statement is unreachable
+              break;  
+..\nx_libs\src\xbee.c: 21 warnings, 0 errors
+compiling uart2_manag.c...
+..\nx_libs\inc\uart2_manag.h(16): warning:  #1-D: last line of file ends without a newline
+  #endif 
+../Inc/main.h(104): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\nx_libs\inc\print_debug.h(30): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\nx_libs\inc\uart2_manag.h(12): warning:  #1295-D: Deprecated declaration uart2_flush - give arg types
+  void uart2_flush();
+..\nx_libs\inc\uart2_manag.h(14): warning:  #1295-D: Deprecated declaration uart2_callback - give arg types
+  extern void uart2_callback();
+..\nx_libs\inc\uart2_manag.h(16): warning:  #1-D: last line of file ends without a newline
+  #endif 
+..\nx_libs\src\uart2_manag.c(79): warning:  #1-D: last line of file ends without a newline
+  }
+..\nx_libs\src\uart2_manag.c: 7 warnings, 0 errors
+compiling xbeehandler.c...
+..\nx_libs\inc\xbeehandler.h(51): warning:  #1-D: last line of file ends without a newline
+  int process_cmdData(unsigned int atCmd, char *cmdData, int len);
+..\nx_libs\inc\print_debug.h(30): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\nx_libs\inc\xbee.h(44): warning:  #1295-D: Deprecated declaration xbee_flush - give arg types
+  void xbee_flush();
+..\nx_libs\inc\xbee.h(57): warning:  #1-D: last line of file ends without a newline
+  #endif 
+..\nx_libs\src\xbeehandler.c(157): warning:  #111-D: statement is unreachable
+              break;
+..\nx_libs\src\xbeehandler.c(139): warning:  #177-D: variable "i" was declared but never referenced
+      char i;                                                     
+..\nx_libs\src\xbeehandler.c(172): warning:  #1-D: last line of file ends without a newline
+  /* ================================================================================= */ 
+..\nx_libs\src\xbeehandler.c: 13 warnings, 0 errors
+linking...
+Program Size: Code=25782 RO-data=514 RW-data=172 ZI-data=2284  
+"STM32F0-Superloop-V1.0\STM32F0-Superloop-V1.0" - 0 Error(s), 182 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.0.0-Beta4.pack
+                ARM::CMSIS:CORE:5.0.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.0.0
+
+<h2>Collection of Component include folders:</h2>
+  C:\Users\acer\Desktop\STM32F0-Superloop-V1.2\MDK-ARM\RTE
+  C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta4\CMSIS\Include
+  C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.0.0
+Build Time Elapsed:  00:00:26
+</pre>
+</body>
+</html>
