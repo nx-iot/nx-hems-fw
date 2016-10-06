@@ -399,11 +399,12 @@ ARM Macro Assembler    Page 7
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M0 --apcs=interw
 ork --depend=stm32f0-superloop-v1.0\startup_stm32f051x8.d -ostm32f0-superloop-v
-1.0\startup_stm32f051x8.o -IC:\Users\acer\Desktop\STM32F0-Superloop-V1.2\MDK-AR
-M\RTE -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta4\CMSIS\Include -IC:\Keil_v5\AR
-M\PACK\Keil\STM32F0xx_DFP\1.5.0\Device\Include --predefine="__MICROLIB SETA 1" 
---predefine="__UVISION_VERSION SETA 518" --predefine="_RTE_ SETA 1" --predefine
-="STM32F051x8 SETA 1" --list=startup_stm32f051x8.lst startup_stm32f051x8.s
+1.0\startup_stm32f051x8.o -IC:\Data\MyProject\next\firmware\nx-hems-fw\HEMS_End
+-ReadSenser_4CH\MDK-ARM\RTE -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include
+ -IC:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0\Device\Include --predefine="__M
+ICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 518" --predefine="_RTE_ SET
+A 1" --predefine="STM32F051x8 SETA 1" --list=startup_stm32f051x8.lst startup_st
+m32f051x8.s
 
 
 
